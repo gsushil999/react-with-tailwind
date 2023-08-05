@@ -14,8 +14,10 @@ const Header = () => {
         const themeValue = event.target.value;
         setThemeName(themeValue);
         localStorage.pageTheme = themeValue;
-        if(themeValue === 'default'){
-            localStorage.removeItem("theme");
+        if (themeValue === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
         }
     }
 
@@ -38,7 +40,11 @@ const Header = () => {
         } else {
             document.documentElement.classList.remove('dark');
         }
-    }, [themeName]);
+        if(localStorage.pageTheme){
+            console.log(localStorage.pageTheme);
+            setThemeName(localStorage.pageTheme);
+        }
+    }, []);
 
     return <>
           <header className="w-full py-3 fixed bg-blue z-10 h-[94px] flex content-center dark:bg-dark">
@@ -52,7 +58,7 @@ const Header = () => {
                         {
                             NAV_OPTIONS.map((nav, index)=>(
                                 <li key={index}>
-                                    <a className={`font-medium px-4 py-3 my-4 text-white opacity-70 cursor-pointer hover:opacity-100 ${currentSection == nav ? 'opacity-100': ''}`} onClick={()=> handleScroll(nav)}>{nav}</a>
+                                    <a className={`font-medium px-4 py-3 my-4 text-white cursor-pointer hover:opacity-100 ${currentSection == nav ? 'opacity-100': 'opacity-70'}`} onClick={()=> handleScroll(nav)}>{nav}</a>
                                 </li>
                             ))
                         }
@@ -61,7 +67,7 @@ const Header = () => {
                         <select className="custom-select" onChange={onChangeTheme}>
                             {
                                 THEME_OPTION.map((theme, index)=>(
-                                    <option key={index} disabled={index == 0} value={theme.value}>{theme.text}</option>
+                                    <option key={index} disabled={index == 0} value={theme.value} selected={theme.value === themeName}>{theme.text}</option>
                                 ))
                             }
                         </select>

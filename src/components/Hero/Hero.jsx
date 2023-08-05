@@ -13,8 +13,8 @@ const Hero = () => {
                         things.
                         </p>
                         <div className="flex mt-[40px] items-center">
-                            <a href='javascript:void(0)' className="bg-white text-blue uppercase font-bold tracking-3 rounded px-6 py-3 mr-3 border-solid border  border-white hover:bg-blue hover:text-white dark:hover:bg-dark dark:text-dark dark:hover:text-white" >Get Started</a>
-                            <a href='javascript:void(0)' className="text-white flex items-center">
+                            <a className="bg-white cursor-pointer text-blue uppercase font-bold tracking-3 rounded px-6 py-3 mr-3 border-solid border  border-white hover:bg-blue hover:text-white dark:hover:bg-dark dark:text-dark dark:hover:text-white" >Get Started</a>
+                            <a className="text-white cursor-pointer flex items-center">
                                 <span 
                                     className="bg-white text-blue rounded-full w-12 h-12 flex items-center text-center justify-center rotate-90 mr-4 border-solid border border-white text-xl hover:bg-blue hover:text-white dark:hover:bg-dark dark:hover:text-white dark:text-dark">&#9650;</span>
                                 <span className="font-semibold">Watch Intro</span>
