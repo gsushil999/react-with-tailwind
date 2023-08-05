@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+
+@layer components {
+    .nav-link {
+      @apply bg-white text-black capitalize font-bold rounded px-[18px] py-[10px] mr-[20px] hover:text-blue dark:hover:text-dark dark:hover:opacity-70 ;
+    }
+    .nav-link.active {
+        @apply bg-blue text-white dark:bg-dark dark:hover:opacity-100 dark:text-dark dark:text-white;
+    }
+    .tab-pane{
+        @apply hidden;
+    }
+    .tab-pane.active{
+        @apply block;
+    }
+    .tab-pane p {
+        @apply text-dark-3 mb-[20px] dark:text-light-1
+    }
+    .custom-select{
+        @apply p-2 text-sm border border-white rounded focus:ring-blue focus:border-blue;
+    }
+}
